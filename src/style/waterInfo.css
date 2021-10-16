@@ -1,0 +1,36 @@
+.field-block {
+    border: 1px solid #EEE;
+    margin: 0 20px;
+    padding: 20px 10px;
+}
+
+.single-water {
+    display: inline-block;
+    margin: 10px 10px;
+}
+
+.country-block {
+    display: inline-block;
+    margin: 10px 10px;
+    padding: 20px;
+    background: #111;
+    border-radius: 5px;
+}
+
+.water-chart {
+    width: 300px;
+}
+
+.detail-text {
+    margin: 20px 0;
+}
+
+.data-display {
+    font-size: 18px;
+    text-align: left;
+}
+
+.line {
+    border: 1px solid #EEE;
+    margin: 10px 0;
+}
