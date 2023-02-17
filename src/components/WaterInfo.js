@@ -9,6 +9,10 @@ import '../style/waterInfo.css';
             cityName: {},
             zoneStationList: {},
             stationInfo: {},
+            FieldList: [],
+            countryList: [],
+            station: [],
+            
             zone: [
                 {
                     field: '北部',
@@ -112,7 +116,7 @@ import '../style/waterInfo.css';
 
         let FieldList = this.state.zone.map(item => {
             let countryList = item.code.map(cell => {
-                let station = <div></div>;
+                let station = [];
 
                 if (stationList[cell]) {
                     // 水庫的組件
@@ -130,17 +134,31 @@ import '../style/waterInfo.css';
                     });
                 }
                 // 各縣市的組件
-                console.log('station', station);
-                return(
-                    <div className="country-block" key={cell}>
-                        <div>{this.state.cityName[cell]}</div>
-                        <div className="line"></div>
-                        {station}
-                    </div>
-                );
+                let stationCount = 0;
+                station.forEach(sItem => {
+                    if(sItem !== false) {
+                        stationCount++;
+                    }
+                });
+                if (stationCount > 0) {
+                    return(
+                        <div className="country-block" key={cell}>
+                            <div>{this.state.cityName[cell]}</div>
+                            <div className="line"></div>
+                            {station}
+                        </div>
+                    );
+                }
+                return false;
             });
             // 地區的組件
-            if (countryList.length > 1) {
+            let countryCount = 0;
+            countryList.forEach(sItem => {
+                if(sItem !== false) {
+                    countryCount++;
+                }
+            });
+            if (countryCount > 0) {
                 return(
                     <div className="field-block" key={item.field}>
                         <div>{item.field}</div>
